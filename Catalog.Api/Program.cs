@@ -191,7 +191,7 @@ using(var scope = app.Services.CreateScope())
     var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
     try{
-        //context.Database.Migrate();
+         dbContext.Database.Migrate();
          await DbInitializer.Initialize(dbContext,userManager);
     }
     catch(Exception ex){

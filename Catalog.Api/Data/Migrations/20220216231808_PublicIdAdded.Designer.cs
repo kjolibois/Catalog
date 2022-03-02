@@ -3,6 +3,7 @@ using System;
 using Catalog.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Catalog.Api.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20220216231808_PublicIdAdded")]
+    partial class PublicIdAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,6 +156,7 @@ namespace Catalog.Api.Data.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("PublicId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("QuantityInStock")
@@ -200,14 +203,14 @@ namespace Catalog.Api.Data.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "f0b4039f-e6e7-43d6-a596-724e42538b28",
+                            ConcurrencyStamp = "55696d80-dc75-43a2-a8e1-bd8a7baf501c",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "21d01de3-f676-4d84-be41-8421e2437fac",
+                            ConcurrencyStamp = "646fb310-96a9-43ce-b925-3c9d74ea0322",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

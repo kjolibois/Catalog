@@ -5,6 +5,7 @@ using Catalog.Api.Data;
 using Catalog.Api.Entities;
 using Catalog.Api.Middleware;
 using Catalog.Api.Repositories;
+using Catalog.Api.RequestHelpers;
 using Catalog.Api.Services;
 using Catalog.Api.Settings;
 using Catalog.Data;
@@ -29,6 +30,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
+builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c => {
@@ -122,6 +124,7 @@ builder.Services.AddCors();
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<PaymentService>();
+builder.Services.AddScoped<ImageService>();
 
 //builder.Services.AddSingleton<IMongoClient>(servicesProvider =>
 //{

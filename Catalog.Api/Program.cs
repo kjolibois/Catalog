@@ -184,10 +184,11 @@ app.MapFallbackToController("Index","Fallback");
     }
  }
 );
-app.UseMiddleware<ExceptionMiddleware>();
 app.MapHealthChecks("/health/live", new HealthCheckOptions{ Predicate = (_) => false});
 //PrepDb.PrepPopulation(mongoDbSettings.ConnectionString);
 */
+app.UseMiddleware<ExceptionMiddleware>();
+
 using(var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<StoreContext>();
